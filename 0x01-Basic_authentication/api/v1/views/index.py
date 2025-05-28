@@ -32,3 +32,11 @@ def unauthorized():
     Aborts for unouthorized access
     """
     abort(401)
+
+
+@app_views.route('/forbidden', strict_slashes=False)
+def forbidden():
+    """
+    Aborts for forbidden access
+    """
+    abort(403)
