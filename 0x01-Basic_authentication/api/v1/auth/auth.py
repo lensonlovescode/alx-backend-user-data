@@ -3,6 +3,7 @@
 Contains the auth class
 """
 from flask import request
+from typing import List, TypeVar
 
 
 class Auth:
@@ -24,6 +25,6 @@ class Auth:
 
     def current_user(self, request=None) -> TypeVar('User'):
         """
-        Returns None
+        Returns None, request will be the request object
         """
         return None
