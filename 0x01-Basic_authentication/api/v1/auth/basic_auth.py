@@ -3,6 +3,7 @@
 Contains a class BasicAuth which inherits from the Auth class
 """
 from .auth import Auth
+import base64
 
 
 class BasicAuth(Auth):
@@ -22,3 +23,20 @@ class BasicAuth(Auth):
             return None
 
         return arr[1]
+
+    def decode_base64_authorization_header(self, base64_authorization_header:
+                                           str) -> str:
+        """
+        decodes the base 64 string into an ascii compaatible form
+        """
+        if base64_authorization_header is None:
+            return None
+        if not isinstance(base64_authorization_header, str):
+            return None
+        try:
+            encoded_str_to_bytes = base64_authorization_header.encode()
+            encoded_bytes_to_base64 = base64.b64decode(encoded_str_to_bytes)
+            decoded_str = encoded_bytes_to_base64.decode('utf-8')
+            return decoded_str
+        except base64.binascii.Error:
+            return None
