@@ -2,7 +2,7 @@
 """
 Contains a class BasicAuth which inherits from the Auth class
 """
-from auth import Auth
+from .auth import Auth
 
 
 class BasicAuth(Auth):
